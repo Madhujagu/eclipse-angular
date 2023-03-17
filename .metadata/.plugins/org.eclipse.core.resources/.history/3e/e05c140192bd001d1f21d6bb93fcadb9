@@ -1,0 +1,25 @@
+package com.angular.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.angular.demo.module.Student;
+import com.angular.demo.repository.StudentRepository;
+
+@Service
+public class StudentService 
+{
+
+	@Autowired
+	private StudentRepository studRepo;
+	
+	public List<Student> fetchAllStudents() {
+		return studRepo.getAllStudents();
+	}
+
+	public List<Student> getStudentByName(Student student) {
+		return studRepo.fetchByName(student);
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.junit.demo.junitTestCase;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import com.junit.demo.junitTest.MathOperations;
+
+
+class MathOperationTests {
+
+	@Test
+	public void test() 
+	{
+
+		MathOperations addCal=new MathOperations();
+		int expected = 50;
+		int real = addCal.addition(20, 30);
+		assertEquals(expected, real);
+	}
+	
+	@Test
+	public void testPosAndNegNos() 
+	{
+
+		MathOperations addCal=new MathOperations();
+		int expected = -10;
+		int real = addCal.addition(20, -30);
+		
+		boolean res = real == expected?true:false;
+		 assertTrue(res);
+	}
+	
+	@Test
+	public void testNegitiveNos()
+	{
+
+		MathOperations addCal=new MathOperations();
+		int expected = -50;
+		int real = addCal.addition(-20, -30);
+		
+		boolean res = real == expected?true:false;
+		 assertTrue(res);
+	}
+
+}

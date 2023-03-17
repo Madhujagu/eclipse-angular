@@ -1,0 +1,20 @@
+package com.junit.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.junit.demo.model.Book;
+import com.junit.demo.repository.BookRepo;
+
+@Service
+public class BookService {
+	
+	@Autowired
+	BookRepo bookRepo;
+	
+	
+	public Book addNewBook(Book book) {
+		return bookRepo.save(book);
+	}
+
+}

@@ -1,0 +1,43 @@
+package com.junit.demo.junitTest;
+
+
+public class MathOperations 
+{
+	public int addition(int a,int b)
+	{
+		return a+b;
+	}
+	
+	public int multiplication(int p,int q)
+	{
+		return p*q;
+	}
+
+	public boolean checkPrime(int num) 
+	{
+		int count = 0;
+		if(num<0)
+			num = -1 * num;
+		for( int i=1; i <= num ; i++)
+		{
+			if(num % i == 0)
+				count++;
+		}
+		
+		if(count == 2) 
+			return true;
+		else
+			return false;
+	}
+
+	public int checkFact(int num) 
+	{
+		int fact=1;
+		
+		for(int i=1;i<=num;i++)
+		{
+			fact=fact*i;
+		}
+		return fact;
+	}
+}

@@ -1,0 +1,98 @@
+package com.junit.demo.junitTestCase;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import com.junit.demo.junitTest.MathOperations;
+
+
+class MathOperationTests {
+	
+	static MathOperations addCal;
+	
+	@BeforeAll
+	static void testOperation()
+	{
+		addCal=new MathOperations();
+	}
+
+	@Test
+	public void test() 
+	{
+
+		int expected = 50;
+		int real = addCal.addition(20, 30);
+		assertEquals(expected, real);
+	}
+	
+	@Test
+	public void testPosAndNegNos() 
+	{
+
+		int expected = -10;
+		int real = addCal.addition(20, -30);
+		
+		boolean res = real == expected?true:false;
+		 assertTrue(res);
+	}
+	
+	@Test
+	public void testNegitiveNos()
+	{
+
+		int expected = -50;
+		int real = addCal.addition(-20, -30);
+		
+		boolean res = real == expected?true:false;
+		 assertTrue(res);
+	}
+	
+	@Test
+	public void allOperations()
+	{
+		assertAll(
+				()->assertEquals(50, addCal.addition(30, 20)),
+				()->assertEquals(-10, addCal.addition(-30, 20)),
+				()->assertEquals(100, addCal.addition(70, 30)),
+				()->assertEquals(40, addCal.multiplication(8, 5))
+				);
+	}
+	
+	@Nested
+	class Addition
+	{
+		@Test
+		public void addPos()
+		{
+			assertEquals(50, addCal.addition(30, 20));
+		}
+		
+		@Test
+		public void addPosAndNeg() 
+		{
+			assertEquals(-10, addCal.addition(-30, 20));
+		}
+		
+		@Test
+		public void addNegAndNeg()
+		{
+			assertEquals(-50, addCal.addition(-30, -20));
+		}
+	}
+	
+	@Test
+	public void isPrimeOrNot()
+	{
+		MathOperations allPrime=new MathOperations();
+		assertAll(
+				()->assertTrue(allPrime.checkPrime(13)),
+				()->assertTrue(allPrime.checkPrime(-13)),
+				()->assertTrue(allPrime.checkPrime(11)));
+	}
+
+}

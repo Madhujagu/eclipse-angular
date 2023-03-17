@@ -1,0 +1,13 @@
+package com.junit.demo.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Book 
+{
+	@Id
+	@GeneratedValue
+	private int id;
+	
+
+}

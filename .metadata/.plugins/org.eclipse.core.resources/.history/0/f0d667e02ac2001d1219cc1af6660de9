@@ -1,0 +1,5 @@
+package com.junit.demo.repository;
+
+public interface BookRepo {
+
+}

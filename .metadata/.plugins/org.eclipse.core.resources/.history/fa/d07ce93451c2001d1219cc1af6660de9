@@ -1,0 +1,41 @@
+package com.junit.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.web.client.RestTemplate;
+
+import com.junit.demo.model.Book;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class JunitIntegrationApplicationTests 
+{
+	static RestTemplate restTemp;
+	
+	@LocalServerPort
+	int port;
+	String baseURL="http://localhost";
+	
+	@BeforeAll
+	static public void setup() {
+		restTemp = new RestTemplate();
+	}
+	
+	@BeforeEach
+	public void initialSetUpforURL() {
+		baseURL = baseURL.concat(":").concat(""+port).concat("/book");
+	}
+	
+	@Test
+	public void checkNewBookEntry() {
+		Book book = new Book("React JS","Chitra Ravi",900);
+		
+		Book newBook = restTemp.postForObject(baseURL+"/addBook", book, Book.class);
+		
+		assertEquals("Chitra Ravi", newBook.getAuthor());
+	}
+}

@@ -1,0 +1,26 @@
+package com.login.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.login.Model.User;
+import com.login.UserRepository.UserRepo;
+
+//import antlr.collections.List;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	UserRepo userRepo;
+	
+
+	public void CreateUserLogin(String username, String password) {
+		User allUser=new User(username,password);
+	}
+
+
+//	public String chechUserLogin(String username, String password) {
+//		List<User> allUsers=
+//		return ;
+//	}
+
+}

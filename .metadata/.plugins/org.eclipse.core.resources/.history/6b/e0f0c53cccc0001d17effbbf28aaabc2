@@ -1,0 +1,5 @@
+package com.sign.app.Controller;
+
+public class SignUpController {
+
+}

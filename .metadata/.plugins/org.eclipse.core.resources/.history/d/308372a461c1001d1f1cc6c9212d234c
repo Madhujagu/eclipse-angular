@@ -1,0 +1,20 @@
+package com.junit.demo.junitTestCase;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import com.junit.demo.junitTest.MathOperations;
+
+public class MathOperationTest 
+{
+	@Test
+	public void testAdd()
+	{
+		MathOperations addCal=new MathOperations();
+		int expected = 50;
+		int real = addCal.addition(20, 30);
+		assertEquals(expected, real);
+	}
+
+}

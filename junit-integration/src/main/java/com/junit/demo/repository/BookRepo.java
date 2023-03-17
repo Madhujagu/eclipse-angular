@@ -1,0 +1,14 @@
+package com.junit.demo.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.junit.demo.model.Book;
+
+public interface BookRepo extends JpaRepository<Book, Integer> 
+{
+
+	Book getByName(String name);
+
+	Book getBooksByAuthor(String author);
+
+}

@@ -1,0 +1,18 @@
+package com.math.demo.arthmeticTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.math.demo.arthimeticOperation.ArtmeticOperation;
+
+public class ArthmeticTest {
+
+	@Test
+	public void test() {
+		ArtmeticOperation resAdd=new ArtmeticOperation();
+		int expected = 50;
+		int res = resadd.
+	}
+
+}

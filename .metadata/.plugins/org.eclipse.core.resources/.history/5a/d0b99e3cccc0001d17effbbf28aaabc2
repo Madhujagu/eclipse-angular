@@ -1,0 +1,5 @@
+package com.sign.app.service;
+
+public class SignUpService {
+
+}
